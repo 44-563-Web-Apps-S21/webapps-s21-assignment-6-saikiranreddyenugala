@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Building a Bear</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <h1>Sai kiran Enugala builds a bear</h1>
+    <div>
+
+        <form>
+            <div class="form-check">
+                <input type="checkbox" id="rg1_hat" name="bear" value="hat">
+                <label for="rg1_hat">Hat</label>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" id="rg1_scarf" name="bear" value="scarf">
+                <label for="rg1_scarf">Scarf</label>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" id="rg1_shirt" name="bear" value="shirt">
+                <label for="rg1_shirt">Shirt</label>
+            </div></br>
+            <div>
+                <input type="button" class="btn btn-primary" onclick="startbear()" value="Start a bear">
+            </div>
+        </form>
+
+
+        <p id="bearres">this is replaced by result</p>
+
+                <form>
+                    <div class="form-group">
+                        <label for="form1_color">Enter a property</label>
+                        <input type="text" id="form1_color" name="form1_color" value="color">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form1_value">Enter a value </label>
+                        <input type="text" id="form1_value" name="form1_value">
+                    </div>
+
+                    <input type="button" class="btn btn-danger" onclick="updatebear()" value="Update the bear">
+                </form>
+           
+            
+                <p id="result">this is replaced by result</p>
+            
+     
+    </div>
+    <script>
+        var my_bear = {};
+        function updatebear() {
+            
+            color = document.getElementById("form1_color").value
+            val = document.getElementById("form1_value").value
+            my_bear[color] = val;
+            document.getElementById('result').innerHTML = JSON.stringify(my_bear);
+
+        }
+        function startbear() {
+            my_bear = {};
+            let hatChck = document.getElementById('rg1_hat').checked;
+            let scarfChck = document.getElementById('rg1_scarf').checked;
+            let shirtChck = document.getElementById('rg1_shirt').checked;
+            my_bear.hat = hatChck
+            my_bear.scarf = scarfChck
+            my_bear.shirt = shirtChck
+
+            let checkBoxGroup = document.getElementsByName("bear");
+            let objString = "{";
+            
+            console.log(checkBoxGroup);
+            for (let i = 0; i < checkBoxGroup.length; i++) {
+                if (i == checkBoxGroup.length - 1) {
+                    objString += checkBoxGroup[i].value + ":"+checkBoxGroup[i].checked
+                }
+                else {
+                    objString += checkBoxGroup[i].value+":"+checkBoxGroup[i].checked+","
+                }
+            }
+            document.getElementById('bearres').innerHTML = objString + "}";
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hidden things</title>
+</head>
+
+<body>
+
+    <h2>Hidden things by sai kiran reddy enugala</h2>
+
+    <form>
+        <label for="secretword">Enter the secret word</label>
+        <input type="password" id="secretWord" value="Secret"><br>
+        <label for="guessword">Enter a guess</label>
+        <input type="text" id="guessWord"><br>
+        <input type="button" id="button" value="Check the Guess" onclick="processGuess()">
+    </form>
+
+    <p id="result"> </p>
+    <div class="container">
+        <img src="larch2.jpg" width="200" height="200" id="imageId" onclick="rotateImage()">
+    </div>
+    <script>
+        var correct = 0, wrong = 0;
+        var currentImage = 0;
+        var out = document.getElementById("result");
+        function processGuess() {
+            var secret = document.getElementById("secretWord");
+            var guess = document.getElementById("guessWord")
+            if (secret.value == guess.value) {
+                correct = correct + 1;
+                alert("Congratulations");
+            }
+            else {
+                wrong = wrong + 1;
+                alert("Sorry");
+            }
+            out.innerHTML = "Correct count" + correct + "," + "Wrong count" + wrong;
+        }
+        function rotateImage() {
+            switch (currentImage) {
+                case 0: imageId.src = "Nasturtium.jpg";
+                    currentImage = 1;
+                    break;
+                case 1: imageId.src = "Umbrella pine.jpg";
+                    currentImage = 2;
+                    break;
+                case 2: imageId.src = "larch2.jpg";
+                    currentImage = 0;
+                    break;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

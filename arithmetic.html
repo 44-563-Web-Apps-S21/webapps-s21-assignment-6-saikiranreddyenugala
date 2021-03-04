@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<title>Arithmatic file</title>
+
+
+<body>
+
+    <h2>Sai kiran reddy Enugala Computes</h2>
+
+    <form>
+        <label for="num_1">Enter a number</label>
+        <input type="number" id="num_1" name="num_1" value=10> <br>
+
+        <label for="num_2">Enter a number</label>
+        <input type="number" id="num_2" name="num_2" value=2> <br>
+        <input type="button" onclick="permutations()" value="Compute">
+    </form>
+
+    <p id="result">The result will be displayed here</p>
+   
+    <form>
+        <input type="radio" id="plus" name="calci" value="plus">
+        <label for="plus">+</label></br>
+
+
+        <input type="radio" id="minus" name="calci" value="minus">
+        <label for="minus">-</label></br>
+
+
+        <input type="radio" id="times" name="calci" value="times">
+        <label for="times">*</label></br>
+
+        <input type="radio" id="divide" name="calci" value="divide">
+        <label for="divide">/</label></br>
+        <input type="button" onclick="processRadio()" value="Result">
+
+    </form>
+    <p id="radio_result">Radio result</p>
+    <script>
+        function permutations() {
+            fnum = document.getElementById("num_1").value
+            snum = document.getElementById("num_2").value
+            var product = 1;
+
+            let i = fnum;
+
+            do {
+                product *= i;
+                i--
+            } while (i >= (fnum - snum + 1))
+
+
+            out = document.getElementById("result")
+            out.innerHTML = fnum + " permute " + snum + " is " + product
+        }
+    </script>
+
+    <script>
+        function processRadio() {
+            fnum = document.getElementById("num_1").value
+            snum = document.getElementById("num_2").value
+
+            plus = document.getElementById("plus").checked
+            minus = document.getElementById("minus").checked
+            times = document.getElementById("times").checked
+            divide = document.getElementById("divide").checked
+
+            if (plus) {
+                out = document.getElementById("radio_result")
+                out.innerHTML = (Number)(fnum) + Number(snum)
+            }
+            if (minus) {
+                out = document.getElementById("radio_result")
+                out.innerHTML = fnum - snum
+            }
+            if (times) {
+                out = document.getElementById("radio_result")
+                out.innerHTML = fnum * snum
+            }
+            if (divide) {
+                out = document.getElementById("radio_result")
+                out.innerHTML = fnum / snum
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>
