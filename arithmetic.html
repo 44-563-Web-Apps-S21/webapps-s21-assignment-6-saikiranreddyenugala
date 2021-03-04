@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html>
-<title>Arithmatic file</title>
-
+<head>
+    <title>Arithmatic file</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+     h2{
+            font-weight: 700;
+            color: blueviolet;
+        }
+    form{
+        width: 300px;
+        margin-left: 30px;
+    }
+</style>
+</head>
 
 <body>
 
@@ -13,7 +28,7 @@
 
         <label for="num_2">Enter a number</label>
         <input type="number" id="num_2" name="num_2" value=2> <br>
-        <input type="button" onclick="permutations()" value="Compute">
+        <input type="button" onclick="permutations()" class="btn btn-outline-warning" value="Compute">
     </form>
 
     <p id="result">The result will be displayed here</p>
